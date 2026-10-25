@@ -1,0 +1,645 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>html{color-scheme:light dark}body{margin:0}[hidden]{display:none!important}</style>
+<title>Reycare Natural Skincare</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Reycare premium botanical skincare: Anti-Aging Serum, Hydrating Moisturizer and Anti-Stretch Mark Cream.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Marcellus&family=Jost:wght@300;400;500&display=swap">
+<style>
+/* Layout: editorial shop — photo hero, product shelf with bundle, ritual sequence, brand story, cart drawer */
+:root{
+  --bg:#F4F1EA;        /* linen / packaging board */
+  --surface:#FBF9F4;
+  --ink:#2F332D;
+  --muted:#6B7065;
+  --sage:#7E8F78;      /* Reycare logo green */
+  --sage-deep:#5D6C58;
+  --amber:#A8652A;     /* serum bottle */
+  --line:#DCD6C8;
+  --on-sage:#FBF9F4;
+  --shadow:0 18px 40px -24px rgba(47,51,45,.35);
+  --display:"Marcellus","Cormorant Garamond",Georgia,serif;
+  --body:"Jost","Helvetica Neue",Arial,sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#1C1F1B;--surface:#242822;--ink:#ECE8DE;--muted:#A9AEA2;--sage:#9DAE96;--sage-deep:#B4C3AE;--amber:#D69256;--line:#3A3F37;--on-sage:#1C1F1B;--shadow:0 18px 40px -24px rgba(0,0,0,.7);color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#1C1F1B;--surface:#242822;--ink:#ECE8DE;--muted:#A9AEA2;--sage:#9DAE96;--sage-deep:#B4C3AE;--amber:#D69256;--line:#3A3F37;--on-sage:#1C1F1B;--shadow:0 18px 40px -24px rgba(0,0,0,.7);color-scheme:dark}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;font-weight:300;line-height:1.65}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--bg)}
+img{display:block;max-width:100%}
+a{color:inherit}
+h1,h2,h3{font-family:var(--display);font-weight:400;line-height:1.12;text-wrap:balance;margin:0}
+p{margin:0}
+.wrap{max-width:1180px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.eyebrow{font-size:.74rem;letter-spacing:.24em;text-transform:uppercase;color:var(--sage-deep);font-weight:500}
+button{font:inherit;cursor:pointer}
+:focus-visible{outline:2px solid var(--sage-deep);outline-offset:3px}
+
+/* logo: original artwork used as a mask so it follows the theme colour */
+.mark,.logo-full{display:block;background:var(--sage);-webkit-mask:var(--src) center/contain no-repeat;mask:var(--src) center/contain no-repeat}
+.mark{--src:url(img/mark.png);width:38px;height:32px}
+.logo-full{--src:url(img/logo.png);width:150px;aspect-ratio:434/320}
+
+.notice{background:var(--sage);color:var(--on-sage);font-size:.8rem;letter-spacing:.06em;text-align:center}
+.notice .wrap{padding-block:8px}
+
+header.site{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+header.site .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:12px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.logo-text{display:flex;flex-direction:column;line-height:1.05}
+.logo-text b{font-weight:500;letter-spacing:.28em;font-size:1rem;color:var(--sage-deep)}
+.logo-text small{font-size:.56rem;letter-spacing:.3em;color:var(--muted);text-transform:uppercase}
+nav.main{display:flex;gap:28px;font-size:.88rem;letter-spacing:.06em}
+nav.main a{text-decoration:none;color:var(--muted)}
+nav.main a:hover{color:var(--ink)}
+.cart-btn{display:flex;align-items:center;gap:8px;background:none;border:1px solid var(--line);color:var(--ink);border-radius:999px;padding:8px 16px;font-size:.88rem}
+.cart-btn:hover{border-color:var(--sage)}
+.cart-count{background:var(--sage);color:var(--on-sage);border-radius:999px;min-width:22px;height:22px;display:inline-grid;place-items:center;font-size:.75rem;font-weight:500;padding:0 6px}
+@media (max-width:820px){nav.main{display:none}}
+
+.hero .wrap{display:grid;grid-template-columns:1fr 1.1fr;gap:56px;align-items:center;padding-block:56px 72px}
+.hero h1{font-size:clamp(2.4rem,5.2vw,4.2rem);margin:14px 0 20px}
+.hero h1 em{font-style:normal;color:var(--sage-deep)}
+.hero p.lead{color:var(--muted);max-width:44ch;font-size:1.06rem}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:999px;padding:13px 26px;font-size:.9rem;letter-spacing:.06em;text-decoration:none;border:1px solid var(--sage-deep);transition:background .2s,color .2s}
+.btn-solid{background:var(--sage-deep);color:var(--on-sage)}
+.btn-solid:hover{background:var(--ink);border-color:var(--ink)}
+.btn-ghost{background:transparent;color:var(--sage-deep)}
+.btn-ghost:hover{background:var(--sage-deep);color:var(--on-sage)}
+.hero-img{position:relative;min-width:0}
+.hero-img img{width:100%;aspect-ratio:922/820;object-fit:cover;border-radius:220px 220px 6px 6px}
+.hero-tag{position:absolute;left:-18px;bottom:28px;background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:12px 16px;font-size:.8rem;box-shadow:var(--shadow);max-width:220px}
+.hero-tag b{display:block;font-family:var(--display);font-weight:400;font-size:1.1rem}
+@media (max-width:860px){.hero .wrap{grid-template-columns:1fr;gap:36px;padding-block:36px 56px}.hero-tag{left:12px}}
+
+.values{border-block:1px solid var(--line);background:var(--surface)}
+.values .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;padding-block:22px;text-align:center;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.values span::before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--sage);margin-right:10px;vertical-align:middle}
+@media (max-width:760px){.values .wrap{grid-template-columns:repeat(2,1fr)}}
+
+section.block{padding-block:88px}
+.sec-head{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap;margin-bottom:44px}
+.sec-head h2{font-size:clamp(1.9rem,3.6vw,2.8rem);margin-top:10px}
+.sec-head p{color:var(--muted);max-width:46ch}
+
+.products{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+@media (max-width:960px){.products{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:620px){.products{grid-template-columns:1fr}}
+.card{display:flex;flex-direction:column;min-width:0}
+.card-img{position:relative;background:var(--surface);border-radius:6px;overflow:hidden;aspect-ratio:4/5}
+.card-img img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+.card:hover .card-img img{transform:scale(1.04)}
+.badge{position:absolute;top:14px;left:14px;background:var(--surface);color:var(--ink);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;padding:5px 10px;border-radius:999px}
+.card-body{display:flex;flex-direction:column;gap:8px;padding-top:20px;flex:1}
+.card-body .cat{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+.card-body h3{font-size:1.5rem}
+.card-body p.desc{color:var(--muted);font-size:.95rem}
+.meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:2px}
+.chip{border:1px solid var(--line);border-radius:999px;font-size:.75rem;padding:3px 10px;color:var(--muted)}
+.card-foot{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:auto;padding-top:16px;border-top:1px solid var(--line)}
+.price{font-family:var(--display);font-size:1.25rem;font-variant-numeric:tabular-nums}
+.add{background:var(--sage-deep);color:var(--on-sage);border:0;border-radius:999px;padding:10px 18px;font-size:.85rem;letter-spacing:.04em;transition:background .2s}
+.add:hover{background:var(--ink)}
+.add.done{background:var(--sage)}
+.more{background:none;border:0;color:var(--sage-deep);text-decoration:underline;text-underline-offset:3px;font-size:.85rem;padding:0;align-self:flex-start}
+
+/* duo campaign */
+.was{text-decoration:line-through;color:var(--muted);font-family:var(--body);font-size:.9rem;margin-right:6px}
+.duo-chip{border-color:var(--amber);color:var(--amber);text-decoration:none}
+.duo{margin-top:44px;display:grid;grid-template-columns:1fr 1.2fr;gap:0;border:1px solid var(--amber);border-radius:8px;overflow:hidden;background:color-mix(in srgb,var(--amber) 7%,var(--surface))}
+.duo-imgs{display:grid;grid-template-columns:1fr 1fr}
+.duo-imgs img{width:100%;height:100%;object-fit:cover;min-height:220px}
+.duo-body{padding:36px 40px;display:grid;gap:12px;align-content:center}
+.duo-body h3{font-size:clamp(1.6rem,2.8vw,2.1rem)}
+.duo-body p{color:var(--muted)}
+.duo-body .eyebrow{color:var(--amber)}
+.sum.disc{color:var(--amber)}
+@media (max-width:760px){.duo{grid-template-columns:1fr}.duo-body{padding:26px}}
+/* bundle */
+.bundle{margin-top:28px;display:grid;grid-template-columns:1.1fr 1fr;background:var(--surface);border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.bundle img{width:100%;height:100%;object-fit:cover;min-height:260px}
+.bundle-body{padding:40px;display:grid;gap:14px;align-content:center}
+.bundle-body h3{font-size:clamp(1.7rem,3vw,2.3rem)}
+.bundle-body ul{margin:0;padding:0;list-style:none;display:grid;gap:6px;color:var(--muted);font-size:.95rem}
+.bundle-body li::before{content:"";display:inline-block;width:14px;height:1px;background:var(--sage);margin-right:10px;vertical-align:middle}
+.bundle-body li.gift{color:var(--sage-deep);font-weight:400}
+.bundle-foot{display:flex;align-items:center;gap:18px;flex-wrap:wrap;margin-top:6px}
+@media (max-width:760px){.bundle{grid-template-columns:1fr}.bundle-body{padding:26px}}
+
+.ritual{background:var(--surface);border-block:1px solid var(--line)}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+@media (max-width:860px){.steps{grid-template-columns:1fr}}
+.step{display:grid;grid-template-columns:120px 1fr;gap:20px;align-items:center}
+.step img{width:120px;height:150px;object-fit:cover;border-radius:60px 60px 4px 4px}
+.step .n{font-family:var(--display);color:var(--sage);font-size:1rem;letter-spacing:.1em}
+.step h3{font-size:1.3rem;margin:4px 0 6px}
+.step p{color:var(--muted);font-size:.92rem}
+
+.story .wrap{display:grid;grid-template-columns:1.1fr 1fr;gap:64px;align-items:center}
+@media (max-width:860px){.story .wrap{grid-template-columns:1fr;gap:32px}}
+.story img{border-radius:6px;width:100%}
+.story h2{font-size:clamp(1.9rem,3.6vw,2.8rem);margin:10px 0 20px}
+.story p{color:var(--muted);margin-bottom:14px;max-width:52ch}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px;border-top:1px solid var(--line);padding-top:22px}
+.facts b{display:block;font-family:var(--display);font-weight:400;font-size:1.4rem;color:var(--sage-deep)}
+.facts span{font-size:.8rem;color:var(--muted)}
+
+.promise{display:grid;grid-template-columns:repeat(4,1fr);gap:28px}
+@media (max-width:900px){.promise{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:520px){.promise{grid-template-columns:1fr}}
+.promise div{border-top:1px solid var(--sage);padding-top:16px}
+.promise h3{font-size:1.2rem;margin-bottom:6px}
+.promise p{color:var(--muted);font-size:.92rem}
+
+.gallery{display:grid;grid-template-columns:1.4fr 1fr 1fr;grid-template-rows:280px 280px;gap:14px}
+.gallery img{width:100%;height:100%;object-fit:cover;border-radius:6px}
+.gallery .g1{grid-row:span 2}
+@media (max-width:760px){.gallery{grid-template-columns:1fr 1fr;grid-template-rows:auto}.gallery .g1{grid-column:span 2;grid-row:auto;aspect-ratio:1}.gallery img{aspect-ratio:3/4}}
+
+.faq{max-width:780px}
+details{border-bottom:1px solid var(--line);padding-block:18px}
+summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:16px;font-size:1.05rem;font-weight:400}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";color:var(--sage-deep);font-size:1.3rem;line-height:1}
+details[open] summary::after{content:"−"}
+details p{color:var(--muted);margin-top:10px;max-width:62ch}
+
+.contact .wrap{display:grid;grid-template-columns:1fr 1.2fr;gap:56px}
+@media (max-width:860px){.contact .wrap{grid-template-columns:1fr;gap:28px}}
+.contact h2{font-size:clamp(1.9rem,3.6vw,2.6rem);margin:10px 0 16px}
+.contact-info{display:grid;gap:14px;margin-top:22px;color:var(--muted);font-size:.95rem}
+.contact-info b{display:block;color:var(--ink);font-weight:500;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase}
+
+form .row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media (max-width:520px){form .row{grid-template-columns:1fr}}
+label{display:grid;gap:6px;font-size:.8rem;letter-spacing:.06em;color:var(--muted);margin-bottom:14px}
+input,textarea,select{font:inherit;font-weight:400;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:11px 13px;width:100%}
+input:focus,textarea:focus,select:focus{outline:none;border-color:var(--sage-deep)}
+textarea{min-height:110px;resize:vertical}
+.form-ok{background:color-mix(in srgb,var(--sage) 18%,var(--surface));border:1px solid var(--sage);border-radius:6px;padding:14px 16px;font-size:.92rem;margin-top:8px}
+
+footer{border-top:1px solid var(--line);background:var(--surface);font-size:.85rem;color:var(--muted)}
+.foot-grid{display:grid;grid-template-columns:1fr 1.4fr 1fr;gap:36px;padding-block:44px}
+@media (max-width:860px){.foot-grid{grid-template-columns:1fr}}
+.foot-grid h4{margin:0 0 10px;font-weight:500;font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink)}
+.foot-grid ul{list-style:none;margin:0;padding:0;display:grid;gap:3px}
+.foot-bottom{border-top:1px solid var(--line)}
+.foot-bottom .wrap{padding-block:16px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:.78rem}
+
+.scrim{position:fixed;inset:0;background:rgba(20,22,19,.45);z-index:80;opacity:0;pointer-events:none;transition:opacity .25s}
+.scrim.on{opacity:1;pointer-events:auto}
+aside.drawer{position:fixed;top:0;right:0;bottom:0;width:min(440px,100%);background:var(--bg);z-index:90;transform:translateX(100%);transition:transform .3s ease;display:flex;flex-direction:column;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);padding-right:env(safe-area-inset-right,0px);box-shadow:-20px 0 50px -30px rgba(0,0,0,.5);visibility:hidden}
+aside.drawer.on{transform:none;visibility:visible}
+.d-head{display:flex;justify-content:space-between;align-items:center;padding:20px 22px;border-bottom:1px solid var(--line)}
+.d-head h2{font-size:1.5rem}
+.x{background:none;border:1px solid var(--line);border-radius:50%;width:36px;height:36px;color:var(--ink);font-size:1.1rem;line-height:1}
+.d-body{flex:1;overflow-y:auto;padding:18px 22px}
+.d-foot{border-top:1px solid var(--line);padding:18px 22px;display:grid;gap:12px}
+.d-foot:empty{display:none}
+.line-item{display:grid;grid-template-columns:72px 1fr auto;gap:14px;align-items:center;padding-block:12px;border-bottom:1px solid var(--line)}
+.line-item img{width:72px;height:86px;object-fit:cover;border-radius:4px}
+.line-item h4{margin:0;font-family:var(--display);font-weight:400;font-size:1.05rem}
+.line-item small{color:var(--muted)}
+.qty{display:inline-flex;align-items:center;border:1px solid var(--line);border-radius:999px;margin-top:6px}
+.qty button{background:none;border:0;width:30px;height:28px;color:var(--ink)}
+.qty span{min-width:20px;text-align:center;font-variant-numeric:tabular-nums;font-size:.9rem}
+.rm{background:none;border:0;color:var(--muted);font-size:.78rem;text-decoration:underline}
+.sum{display:flex;justify-content:space-between;font-size:.95rem;font-variant-numeric:tabular-nums}
+.sum b{font-weight:500}
+.sum.total{font-size:1.1rem;border-top:1px solid var(--line);padding-top:10px}
+.empty{text-align:center;color:var(--muted);padding:40px 0;display:grid;gap:14px;justify-items:center}
+.note{font-size:.78rem;color:var(--muted)}
+.success{text-align:center;display:grid;gap:12px;justify-items:center;padding:30px 0}
+.success .ok{width:60px;height:60px;border-radius:50%;background:var(--sage);color:var(--on-sage);display:grid;place-items:center;font-size:1.6rem}
+.success h3{font-size:1.6rem}
+.code{font-family:var(--display);letter-spacing:.12em;font-size:1.1rem;color:var(--sage-deep)}
+
+dialog{border:0;border-radius:8px;padding:0;max-width:min(860px,calc(100% - 32px));background:var(--bg);color:var(--ink);box-shadow:var(--shadow)}
+dialog::backdrop{background:rgba(20,22,19,.5)}
+.dlg{display:grid;grid-template-columns:1fr 1.1fr}
+.dlg img{width:100%;height:100%;object-fit:cover;min-height:280px}
+.dlg-body{padding:30px;display:grid;gap:12px;align-content:start;position:relative}
+.dlg-body h3{font-size:1.9rem;padding-right:40px}
+.dlg-body .x{position:absolute;top:16px;right:16px}
+.dlg-body dl{display:grid;grid-template-columns:auto 1fr;gap:6px 16px;margin:6px 0 0;font-size:.9rem}
+.dlg-body dt{color:var(--muted)}
+.dlg-body dd{margin:0}
+@media (max-width:700px){.dlg{grid-template-columns:1fr}.dlg img{max-height:280px}}
+.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translate(-50%,30px);background:var(--ink);color:var(--bg);padding:11px 20px;border-radius:999px;font-size:.88rem;opacity:0;transition:.25s;z-index:100;pointer-events:none}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+</style>
+</head>
+<body>
+
+
+<header class="site">
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="Reycare home">
+      <span class="mark" aria-hidden="true"></span>
+      <span class="logo-text"><b>REYCARE</b><small>Natural Skincare</small></span>
+    </a>
+    <nav class="main" aria-label="Main menu">
+      <a href="#shop">Shop</a>
+      <a href="#ritual">Ritual</a>
+      <a href="#story">Our Story</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <button class="cart-btn" id="openCart" aria-label="Open bag">Bag <span class="cart-count" id="cartCount">0</span></button>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <span class="eyebrow">Premium botanical skincare</span>
+        <h1>Reclaim your skin,<br><em>at any age.</em></h1>
+        <p class="lead">Reycare combines natural, organic ingredients with targeted formulas for stretch marks, signs of ageing and dryness. Three essentials, one simple routine.</p>
+        <div class="hero-actions">
+          <a class="btn btn-solid" href="#shop">Shop the essentials</a>
+          <a class="btn btn-ghost" href="#ritual">How to use</a>
+        </div>
+      </div>
+      <div class="hero-img">
+        <img src="img/hero.jpg" alt="Reycare Hydrating Moisturizer with bamboo lid, amber Anti-Aging Serum and green Anti-Stretch Mark Cream on a steel tray">
+        <div class="hero-tag"><b>The Essential Collection</b>All three products plus a complimentary Gua Sha tool</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="values"><div class="wrap">
+    <span>Natural &amp; organic</span><span>Vegan &amp; cruelty-free</span><span>ISO 22716 / GMP</span><span>Glass &amp; bamboo packaging</span>
+  </div></div>
+
+  <section class="block" id="shop">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><span class="eyebrow">The collection</span><h2>The Essentials</h2></div>
+        <p>Each product targets one specific concern instead of trying to do everything. Use them on their own or together as a routine.</p>
+      </div>
+      <div class="products" id="productGrid"></div>
+
+      <div class="duo" id="duo">
+        <div class="duo-imgs"><img src="img/serum.jpg" alt="Reycare Anti-Aging Serum"><img src="img/krem.jpg" alt="Reycare Hydrating Moisturizer"></div>
+        <div class="duo-body">
+          <span class="eyebrow">Campaign</span>
+          <h3>Serum &amp; Moisturizer Duo</h3>
+          <p>Serum and moisturizer work best together: the serum delivers concentrated botanical actives, and the moisturizer seals them in with lasting hydration. Buy both and save <b id="duoSave"></b>.</p>
+          <div class="bundle-foot"><span class="price" id="duoPrice"></span><button class="add" id="addDuo">Add the Duo</button></div>
+          <p class="note">The discount is applied automatically when both products are in your bag.</p>
+        </div>
+      </div>
+
+      <div class="bundle">
+        <img src="img/paket.jpg" alt="Reycare gift box, cotton pouch, paper bag with RC logo and a dropper bottle">
+        <div class="bundle-body">
+          <span class="eyebrow">Best value</span>
+          <h3>The Essential Collection</h3>
+          <p style="color:var(--muted)">The complete Reycare routine for face and body, delivered in our signature gift box.</p>
+          <ul>
+            <li>Anti-Aging Serum, 30 ml</li>
+            <li>Hydrating Moisturizer, 50 ml</li>
+            <li>Anti-Stretch Mark Cream, 150 ml</li>
+            <li class="gift">Complimentary stainless steel Gua Sha tool</li>
+            <li class="gift">Printed skincare guide</li>
+          </ul>
+          <div class="bundle-foot"><span class="price" id="bundlePrice"></span><button class="add" data-add="set">Add to bag</button></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block ritual" id="ritual">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><span class="eyebrow">The ritual</span><h2>Three steps, morning and night</h2></div>
+        <p>Apply from the lightest texture to the richest, so each layer can absorb properly.</p>
+      </div>
+      <div class="steps">
+        <div class="step"><img src="img/uygulama.jpg" alt="Serum being applied to the face with a dropper"><div><span class="n">STEP 1</span><h3>Serum</h3><p>Apply 2–3 drops to clean skin and press gently with your fingertips.</p></div></div>
+        <div class="step"><img src="img/krem.jpg" alt="Open jar of Reycare Hydrating Moisturizer"><div><span class="n">STEP 2</span><h3>Moisturize</h3><p>Once the serum has absorbed, massage a pea-sized amount upwards over face and neck.</p></div></div>
+        <div class="step"><img src="img/anne.jpg" alt="Pregnant woman applying Reycare Anti-Stretch Mark Cream to her belly"><div><span class="n">STEP 3</span><h3>Body care</h3><p>After showering, massage the Anti-Stretch Mark Cream into damp skin in circular motions.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block story" id="story">
+    <div class="wrap">
+      <div style="display:grid;gap:18px">
+        <img src="img/aile.jpg" alt="Three women of different generations smiling with Reycare products">
+      </div>
+      <div>
+        <span class="logo-full" aria-label="Reycare Natural Skincare logo" role="img" style="margin-bottom:22px"></span>
+        <span class="eyebrow">Our story</span>
+        <h2>Skincare that helps women feel confident in their skin</h2>
+        <p>Reycare is a natural and organic skincare brand created mainly for women, from young adults to mature skin. We focus on common concerns such as stretch marks, signs of ageing and dryness, and we build each product around carefully chosen botanical ingredients.</p>
+        <p>Our goal is to become a leading natural skincare brand that offers effective, customer-centric products for the diverse needs of women, made with clean ingredients and complete transparency.</p>
+        <div class="facts">
+          <div><b>3</b><span>targeted essentials</span></div>
+          <div><b>100%</b><span>vegan &amp; cruelty-free</span></div>
+          <div><b>0</b><span>harmful chemicals</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block ritual">
+    <div class="wrap">
+      <div class="sec-head"><div><span class="eyebrow">The Reycare promise</span><h2>More than what's in the jar</h2></div></div>
+      <div class="promise">
+        <div><h3>Clean formulas</h3><p>Cold-pressed botanical oils and vegan actives, produced under ISO 22716 / GMP guidelines by our contract manufacturing partners.</p></div>
+        <div><h3>Sustainable packaging</h3><p>Glass and bamboo containers, shipped in recycled paper pulp liners, corrugated cardboard and biodegradable corn starch fill.</p></div>
+        <div><h3>Thoughtful extras</h3><p>Complimentary Gua Sha tools, expert skincare guides and a refill programme for your favourite products.</p></div>
+        <div><h3>Satisfaction guarantee</h3><p>Fast, careful delivery and friendly after-sales support through our digital channels.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="wrap">
+      <div class="gallery">
+        <img class="g1" src="img/damla.jpg" alt="A drop of serum falling from a glass pipette">
+        <img src="img/serum.jpg" alt="Reycare Anti-Aging Serum bottle">
+        <img src="img/doku.jpg" alt="Serum texture with a glass dropper">
+        <img src="img/krem.jpg" alt="Reycare Hydrating Moisturizer texture">
+        <img src="img/catlak.jpg" alt="Reycare Anti-Stretch Mark Cream tube">
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="faq" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head"><div><span class="eyebrow">FAQ</span><h2>Good to know</h2></div></div>
+      <div class="faq">
+        <details open><summary>Which skin types are Reycare products suitable for?</summary><p>Our formulas are designed for normal, dry and combination skin. If you have sensitive skin, try a small amount behind your ear first.</p></details>
+        <details><summary>When will I see results?</summary><p>Skin renews itself roughly every four weeks, so we recommend using the products consistently for at least four weeks. Results vary from person to person.</p></details>
+        <details><summary>Can I use the Anti-Stretch Mark Cream during pregnancy?</summary><p>Please talk to your doctor before starting any new product during pregnancy or breastfeeding.</p></details>
+        <details><summary>Where can I buy Reycare?</summary><p>Our official website is the main place to buy Reycare. We are also planning a selective presence in premium beauty retailers and luxury spas.</p></details>
+        <details><summary>Which payment methods do you accept?</summary><p>On a live store we would accept credit cards, bank transfer (EFT) and PayPal. Because this site is a demo, no payment is collected.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="block contact ritual" id="contact">
+    <div class="wrap">
+      <div>
+        <span class="eyebrow">Contact</span>
+        <h2>Get in touch</h2>
+        <p style="color:var(--muted)">Questions about our products, wholesale or partnerships? Send us a message.</p>
+        <div class="contact-info">
+          <div><b>Email</b>contact@reycare.com</div>
+          <div><b>Phone</b>+90 (212) 555 01 99</div>
+          <div><b>Address</b>Büyükdere Cad. No:193, Plaza Fl:8, Maslak, Istanbul, Türkiye</div>
+        </div>
+      </div>
+      <form id="contactForm" novalidate>
+        <div class="row">
+          <label for="cName">Full name<input id="cName" required autocomplete="name"></label>
+          <label for="cMail">Email<input id="cMail" type="email" required autocomplete="email"></label>
+        </div>
+        <label for="cTopic">Topic<select id="cTopic"><option>Product question</option><option>Order</option><option>Wholesale &amp; retail partnership</option><option>Other</option></select></label>
+        <label for="cMsg">Message<textarea id="cMsg" required></textarea></label>
+        <button class="btn btn-solid" type="submit">Send message</button>
+        <div class="form-ok" id="contactOk" hidden></div>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot-grid">
+    <div>
+      <span class="logo-full" role="img" aria-label="Reycare Natural Skincare logo" style="width:120px;margin-bottom:12px"></span>
+      <p>Premium botanical skincare, made with natural and organic ingredients.</p>
+    </div>
+    <div>
+      <h4>About this project</h4>
+      <p style="margin-bottom:8px">Industrial Engineering Term Project, Marketing Management. Project team:</p>
+      <ul>
+        <li>Nursena Tatlav</li><li>Ayşenur Çekkaya</li><li>Defne Çardak</li><li>Gizem Neslim Mert</li><li>Murat Doğan</li>
+      </ul>
+    </div>
+    <div>
+      <h4>Shop</h4>
+      <ul><li><a href="#shop">Anti-Aging Serum</a></li><li><a href="#shop">Hydrating Moisturizer</a></li><li><a href="#shop">Anti-Stretch Mark Cream</a></li><li><a href="#shop">The Essential Collection</a></li></ul>
+    </div>
+  </div>
+  <div class="foot-bottom"><div class="wrap"><span>© 2026 Reycare Natural Skincare</span><span>Demo store for academic purposes. Prices in Turkish Lira.</span></div></div>
+</footer>
+
+<dialog id="detail"><div class="dlg">
+  <img id="dImg" src="img/serum.jpg" alt="">
+  <div class="dlg-body">
+    <button class="x" id="dClose" aria-label="Close">×</button>
+    <span class="eyebrow" id="dCat"></span>
+    <h3 id="dName"></h3>
+    <p id="dLong" style="color:var(--muted)"></p>
+    <dl id="dSpecs"></dl>
+    <div class="card-foot" style="border:0;padding-top:8px"><span class="price" id="dPrice"></span><button class="add" id="dAdd">Add to bag</button></div>
+  </div>
+</div></dialog>
+
+<div class="scrim" id="scrim"></div>
+<aside class="drawer" id="drawer" aria-label="Shopping bag">
+  <div class="d-head"><h2 id="dTitle">Your bag</h2><button class="x" id="closeCart" aria-label="Close bag">×</button></div>
+  <div class="d-body" id="dBody"></div>
+  <div class="d-foot" id="dFoot"></div>
+</aside>
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+/* Prices in TL. Edit here to change them everywhere. */
+const PRODUCTS = [
+  { id:"serum", name:"Anti-Aging Serum", cat:"Face · Serum", img:"img/serum.jpg", size:"30 ml", badge:"Bestseller", price:3499.90,
+    desc:"A lightweight botanical serum that targets fine lines and promotes a radiant, firm-looking complexion.",
+    long:"Restore your skin's youthful vitality with our potent botanical blend. This fast-absorbing serum targets fine lines and helps skin look firmer and more radiant, without a greasy finish.",
+    specs:[["Size","30 ml"],["Use","Morning and night, 2–3 drops"],["Texture","Lightweight, fast-absorbing"],["Packaging","Amber glass bottle, bamboo dropper"]] },
+  { id:"krem", name:"Hydrating Moisturizer", cat:"Face · Moisturizer", img:"img/krem.jpg", size:"50 ml", badge:"Daily essential", price:1599.90,
+    desc:"An antioxidant-rich moisturizer that delivers deep, long-lasting hydration without greasiness.",
+    long:"The cornerstone of your daily routine. Its antioxidant-rich botanical formula supports the skin barrier and locks in moisture for luminous, quenched skin. Suitable under make-up and at night.",
+    specs:[["Size","50 ml"],["Use","After serum, morning and night"],["Texture","Rich but non-greasy"],["Packaging","Glass jar, bamboo lid"]] },
+  { id:"catlak", name:"Anti-Stretch Mark Cream", cat:"Body · Cream", img:"img/catlak.jpg", size:"150 ml", badge:"Body care", price:1799.90,
+    desc:"A nutrient-rich, deeply moisturizing cream that improves skin elasticity and visibly reduces the appearance of stretch marks.",
+    long:"Made for areas prone to stretch marks such as the belly, hips and thighs. Restores smoothness and confidence with a nourishing botanical formula. Please consult your doctor before use during pregnancy.",
+    specs:[["Size","150 ml"],["Use","Twice daily, circular massage"],["Areas","Belly, hips, thighs, chest"],["Packaging","Recyclable tube"]] },
+];
+/* Serum + Moisturizer campaign: applied automatically in the bag for every serum–moisturizer pair */
+const DUO_PRICE = 4699.90;
+const DUO_SAVE = +(3499.90 + 1599.90 - DUO_PRICE).toFixed(2);
+const SET = { id:"set", name:"The Essential Collection", cat:"Gift set", img:"img/paket.jpg", size:"3 products + Gua Sha",
+  price: +(DUO_PRICE + 1799.90).toFixed(2) };
+
+const $ = s => document.querySelector(s);
+const fmt = n => "₺" + n.toLocaleString("en-US",{minimumFractionDigits:2,maximumFractionDigits:2});
+const ALL = [...PRODUCTS, SET];
+const byId = id => ALL.find(p => p.id === id);
+
+let cart = {};
+try { cart = JSON.parse(localStorage.getItem("reycare-cart-en") || "{}") || {}; } catch(e) { cart = {}; }
+Object.keys(cart).forEach(k => { if (!byId(k)) delete cart[k]; });
+function save(){ try { localStorage.setItem("reycare-cart-en", JSON.stringify(cart)); } catch(e){} }
+
+$("#productGrid").innerHTML = PRODUCTS.map(p => `
+  <article class="card">
+    <div class="card-img"><img src="${p.img}" alt="Reycare ${p.name}" loading="lazy"><span class="badge">${p.badge}</span></div>
+    <div class="card-body">
+      <span class="cat">${p.cat}</span>
+      <h3>${p.name}</h3>
+      <p class="desc">${p.desc}</p>
+      <div class="meta"><span class="chip">${p.size}</span><span class="chip">Vegan</span>${p.id==="serum"||p.id==="krem"?'<a class="chip duo-chip" href="#duo">Duo offer</a>':''}</div>
+      <button class="more" data-detail="${p.id}">Product details</button>
+      <div class="card-foot"><span class="price">${fmt(p.price)}</span><button class="add" data-add="${p.id}">Add to bag</button></div>
+    </div>
+  </article>`).join("");
+$("#bundlePrice").innerHTML = `<span class="was">${fmt(PRODUCTS.reduce((s,p)=>s+p.price,0))}</span> ${fmt(SET.price)}`;
+$("#duoPrice").innerHTML = `<span class="was">${fmt(3499.90+1599.90)}</span> ${fmt(DUO_PRICE)}`;
+$("#duoSave").textContent = fmt(DUO_SAVE);
+$("#addDuo").onclick = e => { cart.serum=(cart.serum||0)+1; cart.krem=(cart.krem||0)+1; save(); render(); toast("Serum & Moisturizer Duo added to your bag"); const b=e.currentTarget; b.classList.add("done"); b.textContent="Added ✓"; setTimeout(()=>{b.classList.remove("done");b.textContent="Add the Duo";},1400); };
+
+let toastT;
+function toast(msg){ const t=$("#toast"); t.textContent=msg; t.classList.add("on"); clearTimeout(toastT); toastT=setTimeout(()=>t.classList.remove("on"),2000); }
+
+function add(id, btn){
+  cart[id] = (cart[id]||0) + 1; save(); render();
+  toast(byId(id).name + " added to your bag");
+  if (btn){ btn.classList.add("done"); btn.textContent="Added ✓"; setTimeout(()=>{btn.classList.remove("done");btn.textContent="Add to bag";},1400); }
+}
+document.addEventListener("click", e => {
+  const a = e.target.closest("[data-add]"); if (a) add(a.dataset.add, a);
+  const d = e.target.closest("[data-detail]"); if (d) openDetail(d.dataset.detail);
+});
+
+const dlg = $("#detail"); let current = null;
+function openDetail(id){
+  const p = byId(id); current = id;
+  $("#dImg").src = p.img; $("#dImg").alt = "Reycare " + p.name;
+  $("#dCat").textContent = p.cat; $("#dName").textContent = p.name; $("#dLong").textContent = p.long;
+  $("#dSpecs").innerHTML = p.specs.map(([k,v])=>`<dt>${k}</dt><dd>${v}</dd>`).join("");
+  $("#dPrice").textContent = fmt(p.price);
+  if (dlg.showModal) dlg.showModal(); else dlg.setAttribute("open","");
+}
+$("#dClose").onclick = () => dlg.close();
+dlg.addEventListener("click", e => { if (e.target === dlg) dlg.close(); });
+$("#dAdd").onclick = e => add(current, e.currentTarget);
+
+let step = "cart", lastOrder = null;
+function openCart(){ step = "cart"; render(); $("#drawer").classList.add("on"); $("#scrim").classList.add("on"); }
+function closeCart(){ $("#drawer").classList.remove("on"); $("#scrim").classList.remove("on"); }
+$("#openCart").onclick = openCart; $("#closeCart").onclick = closeCart; $("#scrim").onclick = closeCart;
+document.addEventListener("keydown", e => { if (e.key === "Escape") closeCart(); });
+
+function totals(){
+  const ids = Object.keys(cart);
+  const count = ids.reduce((s,k)=>s+cart[k],0);
+  const sub = ids.reduce((s,k)=>s+byId(k).price*cart[k],0);
+  const pairs = Math.min(cart.serum||0, cart.krem||0);
+  const disc = +(pairs*DUO_SAVE).toFixed(2);
+  const sum = +(sub - disc).toFixed(2);
+  return {ids,count,sub,pairs,disc,sum};
+}
+
+function render(){
+  const {ids,count,sub,pairs,disc,sum} = totals();
+  const discLine = disc ? `<div class="sum disc"><span>Serum &amp; Moisturizer Duo${pairs>1?" ×"+pairs:""}</span><b>−${fmt(disc)}</b></div>` : "";
+  $("#cartCount").textContent = count;
+  const body = $("#dBody"), foot = $("#dFoot");
+
+  if (step === "done"){
+    $("#dTitle").textContent = "Order placed";
+    body.innerHTML = `<div class="success"><div class="ok">✓</div><h3>Thank you, ${lastOrder.name}!</h3>
+      <p class="note">Your order number</p><span class="code">${lastOrder.code}</span>
+      <p style="color:var(--muted);max-width:32ch">${lastOrder.count} item(s), ${fmt(lastOrder.sum)}. This is a demo store, so nothing will be shipped or charged.</p></div>`;
+    foot.innerHTML = `<button class="btn btn-solid" id="contShop">Continue shopping</button>`;
+    $("#contShop").onclick = closeCart; return;
+  }
+
+  if (!count){
+    $("#dTitle").textContent = "Your bag";
+    body.innerHTML = `<div class="empty"><p>Your bag is empty.</p><button class="btn btn-ghost" id="goShop">Browse products</button></div>`;
+    foot.innerHTML = ""; $("#goShop").onclick = () => { closeCart(); document.getElementById("shop").scrollIntoView(); };
+    return;
+  }
+
+  if (step === "checkout"){
+    $("#dTitle").textContent = "Delivery details";
+    body.innerHTML = `<form id="coForm" novalidate>
+      <label for="oName">Full name<input id="oName" required autocomplete="name"></label>
+      <label for="oPhone">Phone<input id="oPhone" type="tel" required autocomplete="tel" placeholder="05xx xxx xx xx"></label>
+      <label for="oMail">Email<input id="oMail" type="email" required autocomplete="email"></label>
+      <div class="row"><label for="oCity">City<input id="oCity" required autocomplete="address-level1"></label><label for="oDist">District<input id="oDist" required autocomplete="address-level2"></label></div>
+      <label for="oAddr">Street address<textarea id="oAddr" required autocomplete="street-address" style="min-height:80px"></textarea></label>
+      <label for="oPay">Payment method<select id="oPay"><option>Credit card</option><option>Bank transfer (EFT)</option><option>PayPal</option></select></label>
+      <p class="note" id="coErr" hidden style="color:var(--amber)"></p>
+      </form>`;
+    foot.innerHTML = `${discLine}<div class="sum total"><span>Total (${count} item${count>1?"s":""})</span><b>${fmt(sum)}</b></div>
+      <button class="btn btn-solid" id="placeOrder">Place order</button>
+      <button class="more" id="backCart" style="justify-self:center">Back to bag</button>
+      <p class="note">Demo checkout: no card details are requested, nothing is stored or sent, and no payment is taken.</p>`;
+    $("#backCart").onclick = () => { step="cart"; render(); };
+    $("#placeOrder").onclick = placeOrder;
+    $("#coForm").addEventListener("submit", e => { e.preventDefault(); placeOrder(); });
+    return;
+  }
+
+  $("#dTitle").textContent = "Your bag";
+  body.innerHTML = ids.map(k => { const p = byId(k); return `
+    <div class="line-item">
+      <img src="${p.img}" alt="">
+      <div><h4>${p.name}</h4><small>${p.size}</small><br>
+        <span class="qty"><button data-dec="${k}" aria-label="Decrease">−</button><span>${cart[k]}</span><button data-inc="${k}" aria-label="Increase">+</button></span></div>
+      <div style="text-align:right;display:grid;gap:6px;justify-items:end"><span class="price" style="font-size:1rem">${fmt(p.price*cart[k])}</span><button class="rm" data-rm="${k}">Remove</button></div>
+    </div>`; }).join("");
+  const hint = (cart.serum||0)!==(cart.krem||0) && ((cart.serum||0)+(cart.krem||0))>0
+    ? `<p class="note" style="color:var(--amber)">Add ${(cart.serum||0)>(cart.krem||0)?"the Hydrating Moisturizer":"the Anti-Aging Serum"} to get the Duo price and save ${fmt(DUO_SAVE)}.</p>` : "";
+  foot.innerHTML = `<div class="sum"><span>Subtotal</span><b>${fmt(sub)}</b></div>
+    ${discLine}
+    <div class="sum"><span>Shipping</span><b>Calculated at checkout</b></div>
+    <div class="sum total"><span>Total</span><b>${fmt(sum)}</b></div>
+    ${hint}
+    <button class="btn btn-solid" id="toCheckout">Checkout</button>`;
+  $("#toCheckout").onclick = () => { step="checkout"; render(); };
+  body.querySelectorAll("[data-inc]").forEach(b=>b.onclick=()=>{cart[b.dataset.inc]++;save();render();});
+  body.querySelectorAll("[data-dec]").forEach(b=>b.onclick=()=>{const k=b.dataset.dec;cart[k]--;if(cart[k]<=0)delete cart[k];save();render();});
+  body.querySelectorAll("[data-rm]").forEach(b=>b.onclick=()=>{delete cart[b.dataset.rm];save();render();});
+}
+
+function invalid(form){
+  form.querySelectorAll("input,textarea").forEach(i => i.style.borderColor = "");
+  const bad = [...form.querySelectorAll("[required]")].filter(i => !i.value.trim() || !i.checkValidity());
+  bad.forEach(i => i.style.borderColor = "var(--amber)");
+  return bad;
+}
+function placeOrder(){
+  const f = $("#coForm"), err = $("#coErr"), bad = invalid(f);
+  if (bad.length){ err.textContent = "Please complete the highlighted fields."; err.hidden = false; bad[0].focus(); return; }
+  const {count,sum} = totals();
+  lastOrder = { name: $("#oName").value.trim().split(" ")[0], count, sum, code: "RC-" + Math.random().toString(36).slice(2,8).toUpperCase() };
+  cart = {}; save(); step = "done"; render();
+}
+
+$("#contactForm").addEventListener("submit", e => {
+  e.preventDefault();
+  const f = e.currentTarget, ok = $("#contactOk");
+  ok.hidden = false;
+  if (invalid(f).length){ ok.textContent = "Please enter your name, a valid email and a message."; return; }
+  ok.textContent = "Thank you, " + $("#cName").value.trim().split(" ")[0] + ". Your message has been received. (Demo: messages are not actually sent.)";
+  f.reset();
+});
+
+render();
+</script>
+
+</body>
+</html>
